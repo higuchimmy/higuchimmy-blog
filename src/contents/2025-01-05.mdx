@@ -1,0 +1,32 @@
+約3ヶ月の産休期間を終え、明日1/6から仕事復帰するのですが、
+産休中に大した技術的アウトプットをしてないなと復帰前日になって焦り始めました。<br/>
+かといって今から新しい技術的な何かに手をつける気力は残念ながら湧いてこなかったので、
+とりあえず個人ブログを作ってみました。
+
+## このブログの目的
+- 技術的なアウトプットと育児記録
+
+<br/>
+
+## 使用技術
+- Next.js（SSG）
+- Vercel
+- Tailwind CSS
+- next/mdx
+
+<br/>
+
+## ハマりポイント
+`next.config.ts`で、@svgr/webpackの設定をturbopackでしか適用しておらず、`pnpm run dev`は問題なく立ち上がるのに、`pnpm run build`ではエラーが発生するという事象でハマりました。
+エラー表示も`Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object.`としか教えてくれず、心辺りなさすぎて時間がかかりました。
+
+## 学び
+ずっとMarkdownのライブラリを使ってみたかったので、こんな感じなんだなと思いながら書いています。<br/>
+.mdxファイルで、MarkdownとJSXを混ぜて書けてるのが斬新で便利ですね、mdxファイルの見栄えが少し悪い気もしますが🙂
+
+## 今後の展望
+- **記事をコンスタントに書いていきたい**
+- 記事ページで前後記事へのリンクを追加
+- microCMSで記事の管理
+- mdxのサポートライブラリ追加
+- トップページでカテゴリー別に記事を表示
