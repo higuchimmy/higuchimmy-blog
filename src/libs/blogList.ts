@@ -6,6 +6,10 @@ type BlogList = {
 };
 
 export const blogList: BlogList = {
+  "2025-01-13": {
+    title: "産休から復帰して一週間経ちました",
+    category: "parenting",
+  },
   "2025-01-05": {
     title: "産休終了直前に個人ブログ作ってみた",
     category: "tech",

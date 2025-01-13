@@ -1,12 +1,6 @@
+import { LikeButton } from "@/components/LikeButton/LikeButton";
 import { ArticleKey, blogList } from "@/libs/blogList";
 import Link from "next/link";
-
-export const generateStaticParams = async () => {
-  return Object.keys(blogList).map((key) => ({
-    slug: key,
-  }));
-};
-
 export default async function BlogPage({
   params,
 }: {
@@ -14,6 +8,19 @@ export default async function BlogPage({
 }) {
   const slug = (await params).slug;
   const { default: Post } = await import(`@/contents/${slug}.mdx`);
+
+  const { count: preCount } = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/like/?slug=${slug}`
+  )
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      return res.json();
+    })
+    .catch((error) => {
+      console.error("Error updating like:", error);
+    });
 
   return (
     <div>
@@ -26,6 +33,7 @@ export default async function BlogPage({
       <div className="bg-white p-4 rounded-md w-full mt-4">
         <Post />
       </div>
+      <LikeButton preCount={preCount} slug={slug} />
     </div>
   );
 }

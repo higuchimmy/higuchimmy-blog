@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "higuchimmy blog",
     description: "higuchimmy/ひぐちみーのブログです",
-    images: ["/header.webp"],
+    images: ["/header.jpg"],
   },
 };
 
